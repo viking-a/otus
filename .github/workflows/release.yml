@@ -5,7 +5,8 @@ on:
     branches:
       - master
       - feature/github_actions
-
+    tags:
+      - ver*
 jobs:
   build:
     runs-on: ubuntu-latest
