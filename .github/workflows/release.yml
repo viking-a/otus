@@ -13,9 +13,8 @@ jobs:
         with:
           submodules: true
       - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
-      - run: |
-          cd unit1
-          cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
+      - run: 
+          cmake . -DPATCH_VERSION=${{ github.run_number }} 
           cmake --build .
           cmake --build . --target test
           cmake --build . --target package
@@ -36,6 +35,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./unit1/helloworld-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./otus2-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: otus2-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
